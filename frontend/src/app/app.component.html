@@ -4,7 +4,7 @@
   </a>
 
   <div>
-    <div class="btn-group" role="group" aria-label="Basic example">
+    <div class="btn-group" role="group" aria-label="Basic example" *ngIf="_router.url=='/menu'">
       <button class="myBtn" (click)="asignarUbicacion('buscar')">Peliculas</button>
       <button class="myBtn" (click)="asignarUbicacion('buscarSeries')">Series</button>
     </div>
