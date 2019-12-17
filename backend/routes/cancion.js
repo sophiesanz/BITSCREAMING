@@ -3,7 +3,7 @@
 var app = require ('express');
 var cancionController = require('../controllers/cancion')
 var multipart = require('connect-multiparty')
-var md_upload  = multipart({uploadDir:'./uploads/canciones'})
+var md_upload  = multipart({uploadDir:'./uploads/cancion'})
 
 var api = app.Router();
 api.post('/cancion', cancionController.crearCancion);

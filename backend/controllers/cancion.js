@@ -131,18 +131,17 @@ function obtenerCanciones(req, res) {
 function buscarTipoGenero(req, res) {
   const generoPar = req.params.genero;
   const tipoPar = req.params.tipo;
-  const object = {};
-  object[param] = value;
 
   Cancion.find({
-    tipo:tipoPar,
-    genero:generoPar
+    'tipo':tipoPar,
+    'genero':generoPar
   }, (err, canciones) => {
       if (err) {
           res.status(500).send({
               message: 'error en el servidor'
           })
       } else {
+        console.log(canciones);
           if (!canciones) {
               res.status(200).send({
                   message: 'no se puede obtener canciones'

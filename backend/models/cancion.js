@@ -8,6 +8,6 @@ var cancionSchema = Schema({
     genero:String,
     tipo:String,
     archivo:String
-});
+},{collection:'Canciones'});
 
-module.exports = mongoose.model('Cancion', cancionSchema);
+module.exports = mongoose.model('Canciones', cancionSchema);
