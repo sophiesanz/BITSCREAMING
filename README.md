@@ -1,4 +1,10 @@
 # BITSCREAMING
+
+///Cuando ya se tiene el proyecto y unicamente se desea correr el codigo
+npm install
+npm start
+
+
 Final Project BIT
 
 
