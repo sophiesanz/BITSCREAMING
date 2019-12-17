@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Usuario } from 'src/app/modelos/usuario';
 
 @Component({
   selector: 'app-videoplayer',
@@ -10,6 +11,7 @@ export class VideoplayerComponent implements OnInit {
   player;
   done:Boolean;
   publicidad:Boolean;
+  usuario:Usuario;
   constructor(
     private _router: Router,// inicializamos el servicio de router{
       private aroute: ActivatedRoute// inicializamos el servicio de router{
@@ -18,6 +20,12 @@ export class VideoplayerComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if(localStorage.getItem("sesion") == null){
+      this._router.navigate(['/']);
+    }
+    this.usuario = JSON.parse(localStorage.getItem("sesion"));
+
     this.done = false;
     this.publicidad = false;
     // 2. This code loads the IFrame Player API code asynchronously.
@@ -49,7 +57,7 @@ export class VideoplayerComponent implements OnInit {
     });
   }
   obtenerTiempo(){
-    this.publicidad = this.player.getCurrentTime() > 60;
+    this.publicidad = this.player.getCurrentTime() > 60 && this.usuario.role == 'free';
     
     if (!this.publicidad) {
       setTimeout(()=>{    //<<<---    using ()=> syntax
