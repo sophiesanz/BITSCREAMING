@@ -1,0 +1,23 @@
+.footer{
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    text-align: center;   
+    color: black;
+    position: relative;
+}
+
+.padre{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+a, button{
+    color: black;
+}
+.credito{
+    text-align: right;
+}
+

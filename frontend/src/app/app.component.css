@@ -1,0 +1,38 @@
+html {
+  height: 100%;
+}
+
+body{
+    width: 100%;
+    position: absolute;
+}
+
+.navbar-gray {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+}
+
+.navbar-brand-size {
+  max-width: 45px;
+}
+
+a,
+button {
+  color: white;
+}
+
+.mat-menu-content:not(:empty) {
+  background-color: 'red' !important;
+}
+
+.menu-black {
+  background-color: black !important;
+}
+
+.router-container {
+  display: block;
+  overflow: hidden;
+}
+
+.footer-wrapper {
+  z-index: -1;
+}

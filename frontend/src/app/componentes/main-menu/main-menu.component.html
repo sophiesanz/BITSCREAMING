@@ -1,0 +1,18 @@
+<div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button class="myBtn" (click)="asignarUbicacion('buscar')">Peliculas</button>
+      <button class="myBtn" (click)="asignarUbicacion('buscarSeries')">Series</button>
+    </div>
+</div>
+
+<div>
+    <!-- <div class="col-5 ml-auto">
+        <app-player></app-player>
+     </div> -->
+    <div>
+        <app-menu-song *ngIf="ubicacion == 'buscar'"></app-menu-song>
+        <app-buscar-series *ngIf="ubicacion == 'buscarSeries'"></app-buscar-series>
+    </div>
+
+   
+</div>

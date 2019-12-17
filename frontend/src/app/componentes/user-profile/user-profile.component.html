@@ -1,0 +1,47 @@
+<form class="formactualizardatos ml-5 mt-5" #updateForm="ngForm" (ngSubmit)="actualizarDatos()" ngNativeValidate>
+  <h2 style="text-align: center;">Perfil</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="imgafi" *ngIf="usuario.imagen && usuario.imagen !=null" (click)="subirimagen()">
+          <img class="img-fluid" id="cargarImagen" src="{{url+'obtener-imagen-usuario/'+usuario.imagen}}" alt=""
+            title="Sube o actualiza tu imagen">
+        </div>
+        <input id="uploadafi" type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)" hidden="true">
+      </div>
+      <div class="col-sm">
+
+  <div>
+      <div class="form-group ">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" class="form-control inputdat" id="formGroupExampleInput" #nombre="ngModel" name="nombre"
+          [(ngModel)]="usuario.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Edad</label>
+        <input type="text" class="form-control inputdat" id="formGroupExampleInput2" name="edad" #edad="ngModel"
+          [(ngModel)]="usuario.edad" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo</label>
+        <input type="email" class="form-control inputdat" id="exampleInputEmail1" aria-describedby="emailHelp"
+          #correo="ngModel" name="correo" [(ngModel)]="usuario.correo" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control inputdat" id="exampleInputPassword1" #password="ngModel"
+          name="password" [(ngModel)]="usuario.password" required>
+      </div>
+      <div class="boton2">
+        <button type="submit" class="btn btn-danger center">Actualizar</button>
+      </div>
+      <br>
+      <div *ngIf="actualizacionCorrecta" class="alert alert-danger">
+        {{actualizacionCorrecta}}
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,29 @@
+<h2>Reproductor de peliculas</h2>
+<br>
+<h5 *ngIf="cancionActual">{{cancionActual}}</h5>
+<br>
+
+<br>
+<div>
+<video width="640px" style="height: 280px;"  id="video" preload="auto" tabindex="0" controls="">
+   
+    <source src="" type='video/ogg; codecs="theora, vorbis"'>
+
+</video>
+</div>
+
+
+<br><br>
+<h4>Mis favoritos</h4>
+<br>
+<ul style="color: black;" class="list-group list-group-flush mb-2" id="playlist"
+    *ngFor="let cancion of canciones; let i = index">
+    <li class="list-group-item itemCancion d-flex">
+        {{ cancion.titulo + ' - ' + cancion.duracion}}
+        <div class="ml-auto">
+            <a data-toggle="modal" href="" class="iconoCancion ml-2" (click)="eliminarCancion(i)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </div>
+    </li>
+</ul>

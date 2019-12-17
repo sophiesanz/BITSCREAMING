@@ -1,0 +1,45 @@
+.formactualizardatos{
+    background:rgba(255, 255, 255, 0.6);
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 90%;
+    padding-bottom: 4%;
+    margin-bottom:10%;
+}
+
+.h2{
+    color: black;
+}
+
+.imgafi{
+    text-align: center;
+}
+.botonbu{
+
+    padding-top:2%;
+    
+}
+
+
+.boton2{
+
+    padding-top:3.5%;
+    display: flex;
+    justify-content: center;
+   }
+ 
+.inputdat{
+    border-style: outset ;
+    border-color:gray;
+}
+
+
+.alert-danger{
+    width: 70%;
+}
+
+.img-fluid{
+    border-radius: 50%;
+    max-width: 200px;
+}

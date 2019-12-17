@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light navbar-gray">
+  <a [routerLink]="''" class="navbar-brand ">
+    <img src="/assets/eye2.jpg" alt="" class="navbar-brand-size">
+  </a>
+  <a [routerLink]="['/login']" class="ml-auto" *ngIf="!usuarioLogueado">Login</a>
+  <mat-menu #appMenu="matMenu">
+    <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']">Agregar Video</button>
+    <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']">Mis Favoritos</button>
+    <button class="menu-black" mat-menu-item [routerLink]="['/update']">Actualizar Mis Datos</button>
+    <button class="menu-black" mat-menu-item [routerLink]="" (click)="cerrarSesion()">Cerrar Sesion</button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="usuarioLogueado">Mi perfil</button>
+</nav>
+<div class="router-container">
+  <router-outlet></router-outlet>
+</div>
+<div class="footer-wrapper">
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,22 @@
+
+.audioplayer{
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+#video{
+    object-fit: initial;
+    width: 80%;
+    height: 40%;
+  }
+
+.audio{
+    width: 90%
+}
+ 
+.list-group-item{
+    width: 90%;
+}
+
+
+    

@@ -1,0 +1,32 @@
+.backwhite{
+    background-color:rgba(255, 255, 255, 0.794);
+    padding: 4%;
+    width: 90%; 
+    /* margin-left: 15% */;
+    padding-bottom: 3.7%;
+    margin-bottom:10%;
+}
+
+.formcrearcancion{
+    padding-top: 3%;
+   
+}
+
+.botoncrear{
+    padding-top: 3%;
+}
+
+.inputdat1{
+    border-radius:40px;
+    border-style: outset ;
+    border-color:gray;
+
+}
+.boton2{
+
+    padding-top:3.5%;
+    
+}
+ 
+
+    
