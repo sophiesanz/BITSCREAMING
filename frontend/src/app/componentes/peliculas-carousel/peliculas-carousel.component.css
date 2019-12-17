@@ -1,5 +1,14 @@
 /*Carousel*/
 
+h3{
+      color:white;
+      margin-left: 70px;
+      font-size: 18px;
+      font-weight: lighter;
+      text-transform: capitalize;
+
+}
+
 .carousel {
       width: 100%;
 }

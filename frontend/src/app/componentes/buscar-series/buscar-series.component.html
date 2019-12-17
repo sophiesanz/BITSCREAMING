@@ -1,4 +1,5 @@
-<div class="selected-video">
+<div class="margin">
+  <div class="selected-video">
 
     
         <!-- The video -->
@@ -8,16 +9,17 @@
      
         <div class="content">
            <h1>Descubre nuestras series!</h1>
-           <p class="content">Lorem ipsum...</p>
-           <!-- Use a button to pause/play the video with JavaScript -->
-           <button id="myBtn" onclick="myFunction()">Pause</button>
+           <p class="content1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nesciunt voluptate corrupti libero, consequatur dignissimos nulla doloribus, alias, molestiae amet eos cupiditate eum magni. Illo ipsam voluptas quibusdam non. Quisquam?</p>
          </div>
       </div>
      
+      <h1>Series</h1>
+  
+      <app-peliculas-carousel [tipo]="'serie'" [genero]="'comedia'"></app-peliculas-carousel>
+      <app-peliculas-carousel [tipo]="'serie'" [genero]="'drama'"></app-peliculas-carousel>
+      <app-peliculas-carousel [tipo]="'serie'" [genero]="'romance'"></app-peliculas-carousel>
+      <app-peliculas-carousel [tipo]="'serie'" [genero]="'anime'"></app-peliculas-carousel>
      
-      <ng-image-slider [images]="images" #nav>
-     
-      </ng-image-slider>
      
       <div class="modal fade bd-example-modal-sm text-dark" id="modal" tabindex="-1" role="dialog"
         aria-labelledby="mySmallModalLabel" aria-hidden="true">

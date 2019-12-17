@@ -1,3 +1,7 @@
+h1{
+  color:white;
+  margin-left: 50px;
+}
 .paddingsong{
     
     background:rgba(255, 255, 255, 0.794);
@@ -5,6 +9,12 @@
     width: 90%;
     padding-bottom: 10%;
     margin-bottom:10%;
+}
+
+#video{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .menusong{
@@ -15,6 +25,10 @@
 .inputa{
     border-style: outset ;
     border-color:gray;
+}
+
+.margin{
+  margin-bottom: 10%;
 }
 
 .menusongafi{
@@ -50,7 +64,16 @@
   
   /* Add some content at the bottom of the video/page */
   .content {
-    position: fixed;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .content1 {
+    position: relative;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     color: #f1f1f1;
@@ -59,7 +82,7 @@
   }
   
   /* Style the button used to pause/play the video */
-  #myBtn {
+  .myBtn {
     width: 200px;
     font-size: 18px;
     padding: 10px;
@@ -69,108 +92,7 @@
     cursor: pointer;
   }
   
-  #myBtn:hover {
+  .myBtn:hover {
     background: #ddd;
     color: black;
-  }
-
-/*Carousel*/
-
-.carousel {
-  width: 100%;
-}
-
-  .row__inner {
-    transition: 450ms -webkit-transform;
-    transition: 450ms transform;
-    transition: 450ms transform, 450ms -webkit-transform;
-    font-size: 0;
-    white-space: nowrap;
-    margin: 45.3125px 0;
-    padding-bottom: 0px;
-  }
-  .tile {
-    position: relative;
-    display: inline-block;
-    width: 250px;
-    height: 140.625px;
-    margin-right: 10px;
-    font-size: 20px;
-    color:white;
-    cursor: pointer;
-    transition: 450ms all;
-    -webkit-transform-origin: center left;
-            transform-origin: center left;
-  }
-  .tile__img {
-    width: 250px;
-    height: 140.625px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .tile__details {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    font-size: 10px;
-    opacity: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-    transition: 450ms opacity;
-  }
-  .tile__details:after,
-  .tile__details:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: #000;
-  }
-  .tile__details:after {
-    margin-top: -25px;
-    margin-left: -25px;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #ecf0f1;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 1;
-  }
-  .tile__details:before {
-    content: '▶';
-    left: 0;
-    width: 100%;
-    font-size: 30px;
-    color:white;
-    margin-left: 7px;
-    margin-top: -18px;
-    text-align: center;
-    z-index: 2;
-  }
-  .tile:hover .tile__details {
-    opacity: 1;
-  }
-  .tile__title {
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-  }
-  .row__inner:hover {
-    -webkit-transform: translate3d(-62.5px, 0, 0);
-            transform: translate3d(-62.5px, 0, 0);
-  }
-  .row__inner:hover .tile {
-    opacity: 0.3;
-  }
-  .row__inner:hover .tile:hover {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-    opacity: 1;
-  }
-  .tile:hover ~ .tile {
-    -webkit-transform: translate3d(125px, 0, 0);
-            transform: translate3d(125px, 0, 0);
   }

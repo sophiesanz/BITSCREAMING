@@ -1,0 +1,99 @@
+h1{
+    color:white;
+    margin-left: 50px;
+  }
+  .paddingsong{
+      
+      background:rgba(255, 255, 255, 0.794);
+      padding: 4%;
+      width: 90%;
+      padding-bottom: 10%;
+      margin-bottom:10%;
+  }
+  
+  #video{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .menusong{
+      padding-top: 3%; 
+  
+  }
+  
+  .inputa{
+      border-style: outset ;
+      border-color:gray;
+  }
+  
+  .margin{
+    margin-bottom: 10%;
+  }
+  
+  .menusongafi{
+      width: 85%;
+  }
+  
+  .list-group{
+      width: 85%;
+  }
+  
+  .list-group-item-secondary{
+      color: black;
+      background-color: white;
+  }
+  
+  
+  
+  /* Style the video: 100% width and height to cover the entire window */
+  .selected-video{
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+  }
+  #myVideo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      z-index: -1;
+    }
+    
+    /* Add some content at the bottom of the video/page */
+    .content {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .content1 {
+      position: relative;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    /* Style the button used to pause/play the video */
+    .myBtn {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .myBtn:hover {
+      background: #ddd;
+      color: black;
+    }
+  
