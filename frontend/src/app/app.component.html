@@ -18,7 +18,7 @@
     </div>
     
     <mat-menu class="menu-black" #appMenu="matMenu">
-      <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']">Agregar Video</button>
+      <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']" *ngIf="usuarioLogueado && usuario.role=='ROLE_ADMI'">Agregar Video</button>
       <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']">Mis Favoritos</button>
       <button class="menu-black" mat-menu-item [routerLink]="['/update']">Actualizar Mis Datos</button>
       <button class="menu-black" mat-menu-item [routerLink]="" (click)="cerrarSesion()">Cerrar Sesion</button>

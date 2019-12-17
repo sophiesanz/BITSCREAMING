@@ -49,7 +49,7 @@ export class VideoplayerComponent implements OnInit {
     });
   }
   obtenerTiempo(){
-    this.publicidad = this.player.getCurrentTime() > 600;
+    this.publicidad = this.player.getCurrentTime() > 60;
     
     if (!this.publicidad) {
       setTimeout(()=>{    //<<<---    using ()=> syntax
