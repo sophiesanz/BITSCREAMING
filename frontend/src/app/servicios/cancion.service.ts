@@ -56,14 +56,14 @@
     ).pipe(map(res => res));
   }
 
-  buscarCanciones(token) {
+  buscarCanciones(tipo, genero) {
     let options = {
     headers: new HttpHeaders(
     {'Content-Type': 'application/json'
     })
     };
     return this._http.get(
-    this.url+'/buscar-las-canciones/'+token,
+    this.url+'todas-las-canciones/'+tipo+'/'+genero,
     options
     ).pipe(map(res => res));
   }
