@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
+import { Cancion } from "src/app/modelos/cancion";
+import { CancionService } from "src/app/servicios/cancion.service";
 
 @Component({
   selector: 'app-peliculas-carousel',
@@ -7,52 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculasCarouselComponent implements OnInit {
   images;
+  title: string;
+  canciones: Cancion[];
+  existenCanciones;
 
-  constructor() { }
+  @Input('tipo') public tipo: string;
+  @Input('genero') public genero: string;
+
+  constructor(
+    private _cancionService: CancionService,
+  ) {
+    this.existenCanciones = false;
+  }
 
   ngOnInit() {
-    this.images = [
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title1',
+    this.images = this.cargarCanciones(this.tipo, this.genero);
+  }
+
+  cargarCanciones(tipo:string , genero:string) {
+    this._cancionService.buscarCanciones(tipo, genero).subscribe(
+      (response: any) => {
+        if (response.canciones) {
+          this.canciones = response.canciones;
+          console.log('response.canciones', response.canciones);
+          this.existenCanciones = true;
+        }
       },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title2',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title3',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
-      },
-    ]
+      error => {
+        if (error != null) {
+          console.log(error);
+        }
+      }
+    );
   }
 
 }
