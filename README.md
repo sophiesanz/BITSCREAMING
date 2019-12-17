@@ -1,11 +1,25 @@
 # BITSCREAMING
 
+
+
+
 ///Cuando ya se tiene el proyecto y unicamente se desea correr el codigo
 npm install
 npm start
 
+-----------------------------------BACKEND
 
-Final Project BIT
+npm init
+npm install express --save
+npm install body-parser --save
+npm install mongoose --save
+npm install nodemon --save-dev
+estructura
+carpetas -> controllers, models, routes
+archivos -> app.js, index.js 
+
+
+------------------------------------FRONTEND
 
 
 Primero!
