@@ -1,12 +1,13 @@
 <nav class="navbar navbar-light navbar-gray">
   <a [routerLink]="''" class="navbar-brand ">
-    <img src="/assets/eye2.jpg" alt="" class="navbar-brand-size">
+    <img src="../assets/logo-bitscream.png" alt="" class="navbar-brand-size">
   </a>
 
   <div>
     <div class="btn-group" role="group" aria-label="Basic example" *ngIf="_router.url=='/menu'">
-      <button class="myBtn" (click)="asignarUbicacion('buscar')">Peliculas</button>
+      <!-- <button class="myBtn" (click)="asignarUbicacion('buscar')">Peliculas</button> -->
       <button class="myBtn" (click)="asignarUbicacion('buscarSeries')">Series</button>
+      <button class="myBtn" (click)="asignarUbicacion('buscarPeliculas')">Peliculas</button>
     </div>
   </div>
   <input type="search" [ngModel]="searchtext" (ngModelChange)="search($event)" *ngIf="_router.url=='/menu'" />
