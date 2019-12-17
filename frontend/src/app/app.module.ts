@@ -42,11 +42,8 @@ import { PeliculasCarouselComponent } from './componentes/peliculas-carousel/pel
     ContactenosComponent,
     BuscarPeliculasComponent,
     BuscarSeriesComponent,
-<<<<<<< Updated upstream
-    VideoplayerComponent
-=======
+    VideoplayerComponent,
     PeliculasCarouselComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
