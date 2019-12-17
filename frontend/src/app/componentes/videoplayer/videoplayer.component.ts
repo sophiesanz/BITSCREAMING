@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-videoplayer',
@@ -9,7 +10,12 @@ export class VideoplayerComponent implements OnInit {
   player;
   done:Boolean;
   publicidad:Boolean;
-  constructor() { }
+  constructor(
+    private _router: Router,// inicializamos el servicio de router{
+      private aroute: ActivatedRoute// inicializamos el servicio de router{
+      ) 
+    { 
+  }
 
   ngOnInit() {
     this.done = false;
@@ -32,9 +38,9 @@ export class VideoplayerComponent implements OnInit {
   }
   onYouTubeIframeAPIReady(){
     this.player = new window['YT'].Player('player', {
-      height: '360',
-      width: '640',
-      videoId: 'M7lc1UVf-VE',
+      height: '100%',
+      width: '100%',
+      videoId: this.aroute.snapshot.paramMap.get('id_youtube'),
       playerVars:{startSeconds: 605},
       events: {
         'onReady': this.onPlayerReady,

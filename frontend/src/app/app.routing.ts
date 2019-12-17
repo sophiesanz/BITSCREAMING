@@ -10,6 +10,7 @@ import {MainMenuComponent} from './componentes/main-menu/main-menu.component';
 import {UserProfileComponent} from './componentes/user-profile/user-profile.component';
 import {PeliculasCarouselComponent} from './componentes/peliculas-carousel/peliculas-carousel.component';
 import {BuscarSeriesComponent} from './componentes/buscar-series/buscar-series.component';
+import {VideoplayerComponent} from './componentes/videoplayer/videoplayer.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path:'favoritos',component:FavoritosComponent},
     {path:'contactenos',component:ContactenosComponent},
     {path:'peliculas',component:PeliculasCarouselComponent},
+    {path:'videoplay/:id_youtube',component:VideoplayerComponent},
     {path:'series',component:BuscarSeriesComponent}
 ];
 export const appRoutingProviders: any[] = [];
