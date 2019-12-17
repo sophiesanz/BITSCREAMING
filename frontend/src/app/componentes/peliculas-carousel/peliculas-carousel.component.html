@@ -1,3 +1,5 @@
-<h3>{{genero}}</h3>
-<ng-image-slider [images]="canciones" #nav>
-</ng-image-slider>
+<div *ngIf="canciones.length > 0">
+  <h3>{{genero}}</h3>
+  <ng-image-slider [images]="canciones" #nav>
+  </ng-image-slider>
+</div>

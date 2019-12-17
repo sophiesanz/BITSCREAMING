@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Cancion } from "src/app/modelos/cancion";
+import { CompartidoService } from "src/app/servicios/compartido.service";
 import { CancionService } from "src/app/servicios/cancion.service";
 
 @Component({
@@ -10,16 +11,21 @@ import { CancionService } from "src/app/servicios/cancion.service";
 export class PeliculasCarouselComponent implements OnInit {
   images;
   title: string;
-  canciones: Cancion[];
+  canciones: any;
+  cancionesAll: any;
   existenCanciones;
 
   @Input('tipo') public tipo: string;
   @Input('genero') public genero: string;
 
   constructor(
-    private _cancionService: CancionService,
+      private _servicioCompartido: CompartidoService,
+      private _cancionService: CancionService
   ) {
     this.existenCanciones = false;
+    this._servicioCompartido.cancionesEmitida.subscribe(token => {
+      this.search(token);
+    });
   }
 
   ngOnInit() {
@@ -39,6 +45,7 @@ export class PeliculasCarouselComponent implements OnInit {
           });
           this.existenCanciones = true;
         }
+        this.cancionesAll = this.canciones;
       },
       error => {
         if (error != null) {
@@ -46,6 +53,16 @@ export class PeliculasCarouselComponent implements OnInit {
         }
       }
     );
+  }
+  
+  search(token) {
+    const regex = new RegExp(token);
+    this.canciones = [];
+    this.cancionesAll.forEach(cancion => {
+      if ((cancion.title && cancion.title.match(regex)!=null) || this.genero.match(regex) != null) {
+        this.canciones.push(cancion);
+      }
+    });
   }
 
 }

@@ -11,6 +11,7 @@ import { CompartidoService } from "src/app/servicios/compartido.service";
 })
 export class MenuSongComponent implements OnInit {
   canciones: Cancion[];
+  cancionesAll: Cancion[];
   existenCanciones;
   images;
   imagesAll;
@@ -19,65 +20,13 @@ export class MenuSongComponent implements OnInit {
   usuario: Usuario;
 
   constructor(
-      private _cancionService: CancionService,
-      private _servicioCompartido: CompartidoService
+      private _cancionService: CancionService
   ) {
     this.existenCanciones = false;
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
-    console.log(this.usuario)
-    this._servicioCompartido.cancionesEmitida.subscribe(token => {
-      this.search(token);
-    });
   }
 
   ngOnInit() {
-    this.cargarCanciones();
-    this.images =[
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title1',
-        posterImage:"../../../assets/1.jpg"
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title2'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title3'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-      {
-        video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title'
-      },
-    ]
-    this.imagesAll = this.images;
-
-    
   }
 
   cargarCanciones() {
@@ -110,7 +59,6 @@ export class MenuSongComponent implements OnInit {
       playlist.push(cancion);
     }
     localStorage.setItem("playlist", JSON.stringify(playlist));
-    this._servicioCompartido.emitirCancion(cancion);
   }
 
   eliminarCancion(cancion) {
@@ -130,14 +78,5 @@ export class MenuSongComponent implements OnInit {
         }
       }
     );
-  }
-
-  search(token) {
-    this.images = [];
-    this.imagesAll.forEach(image => {
-      if (image.title && image.title.match(new RegExp(token))) {
-        this.images.push(image);
-      }
-    });
   }
 }
