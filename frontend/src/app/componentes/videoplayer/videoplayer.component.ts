@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CancionService } from '../../servicios/cancion.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -11,6 +12,7 @@ export class VideoplayerComponent implements OnInit {
   done:Boolean;
   publicidad:Boolean;
   constructor(
+    private _cancionService : CancionService,
     private _router: Router,// inicializamos el servicio de router{
       private aroute: ActivatedRoute// inicializamos el servicio de router{
       ) 
@@ -18,6 +20,7 @@ export class VideoplayerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._cancionService.buscarPorParam('tipo','pelicula')
     this.done = false;
     this.publicidad = false;
     // 2. This code loads the IFrame Player API code asynchronously.

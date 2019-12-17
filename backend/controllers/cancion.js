@@ -3,7 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 
-const Cancion = require('../models/cancion')
+const Cancion = require('../models/Cancion')
 
 function crearCancion(req, res) {
     var cancion = new Cancion();
@@ -128,15 +128,50 @@ function obtenerCanciones(req, res) {
 }
 
 
+function buscarTipoGenero(req, res) {
+  const generoPar = req.params.genero;
+  const tipoPar = req.params.tipo;
+  const object = {};
+  object[param] = value;
+
+  Cancion.find({
+    tipo:tipoPar,
+    genero:generoPar
+  }, (err, canciones) => {
+      if (err) {
+          res.status(500).send({
+              message: 'error en el servidor'
+          })
+      } else {
+          if (!canciones) {
+              res.status(200).send({
+                  message: 'no se puede obtener canciones'
+              })
+          } else {
+              res.status(200).send({
+                  canciones: canciones
+              })
+          }
+      }
+  });
+
+}
 
 
 
 function buscarCanciones(req, res) {
     var token = req.params.token;
-    console.log(token);
 
     Cancion.find({
         "titulo": {
+            $regex: new RegExp(token),
+            $options: 'i'
+        },
+        "genero": {
+            $regex: new RegExp(token),
+            $options: 'i'
+        },
+        "tipo": {
             $regex: new RegExp(token),
             $options: 'i'
         }
@@ -167,5 +202,6 @@ module.exports = {
     obtenerFicheroCancion,
     cargarFicheroCancion,
     obtenerCanciones,
-    buscarCanciones
+    buscarCanciones,
+    buscarTipoGenero
 }

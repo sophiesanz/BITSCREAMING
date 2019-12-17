@@ -10,4 +10,4 @@ var cancionSchema = Schema({
     archivo:String
 });
 
-module.exports = mongoose.model('cancion', cancionSchema);
+module.exports = mongoose.model('Cancion', cancionSchema);
