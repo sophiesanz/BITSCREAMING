@@ -13,5 +13,6 @@ api.put('/usuario/:id', UsuarioController.actualizarUsuario);
 api.delete('/usuario/:id', UsuarioController.eliminarUsuario);
 api.post('/cargar-imagen-usuario/:id', md_upload,UsuarioController.cargarImagenUsuario);
 api.get('/obtener-imagen-usuario/:imageFile', md_upload,UsuarioController.obtenerImagenUsuario);
+api.post('/actulizar-tiempo/:id', md_upload,UsuarioController.actualizarTiempo);
 
 module.exports = api; 

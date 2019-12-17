@@ -96,10 +96,7 @@ function obtenerUsuario(req,res){
             }
         }
     )
-
-
 }
-
 
 function obtenerImagenUsuario(req,res){
     //nombre fichero
@@ -117,8 +114,6 @@ function obtenerImagenUsuario(req,res){
     }); 
 
 }
-
-
 
 function cargarImagenUsuario(req,res){
     var idUsuario = req.params.id;
@@ -157,12 +152,32 @@ function cargarImagenUsuario(req,res){
     }
 }
 
+function actualizarTiempo(req,res) {
+  var idUsuario = req.params.id;
+  Usuario.findOne({id:idUsuario},
+        (err,usuario)=>{
+            if(err){
+                res.status(500).send({
+                    message:'Error en el servidor'})
+            }else{
+                if(!usuario){
+                    res.status(200).send({
+                        message:`No existe usuario con el correo: ${correo}`})
+                }else{
+                    if(usuario.password !=password){
+                        res.status(200).send({
+                            message:'contraseña errada'})
+                    }else{
+                      const tiempoFreeNew = (usuario.tiempoFree ? usuario.tiempoFree : 0) + 10;
+                      const req2 = {params:{id:idUsuario},body:{tiempoFree:tiempoFreeNew}}
+                      actualizarUsuario(req2,res)
+                    }
+                }
+            }
+        }
+    )
 
-
-
-
-
-
+}
 
 module.exports = {
     prueba_usuario,
@@ -171,9 +186,8 @@ module.exports = {
     eliminarUsuario,
     obtenerUsuario,
     obtenerImagenUsuario,
-    cargarImagenUsuario
-
-    
+    cargarImagenUsuario,
+    actualizarTiempo
 }
  
 

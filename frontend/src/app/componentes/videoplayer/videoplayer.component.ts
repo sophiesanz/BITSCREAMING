@@ -8,20 +8,27 @@ import { Usuario } from 'src/app/modelos/usuario';
   styleUrls: ['./videoplayer.component.css']
 })
 export class VideoplayerComponent implements OnInit {
+  publicidades: string[];
   player;
-  done:Boolean;
-  publicidad:Boolean;
-  usuario:Usuario;
+  done: Boolean;
+  haztePremium: Boolean;
+  publicidad: Boolean;
+  usuario: Usuario;
+  youtubeId: string;
+  start: number;
   constructor(
     private _router: Router,// inicializamos el servicio de router{
-      private aroute: ActivatedRoute// inicializamos el servicio de router{
-      ) 
-    { 
+    private aroute: ActivatedRoute// inicializamos el servicio de router{
+  ) {
+    this.publicidades = ['MrxGdtYzUkk', 'fFFf91-K30U', 'iPjaMOZZD58', 'A2AcUQHrJIE', 'roIok_ya084', 'gGO4t7oCHNA']
+    this.done = false
+    this.start = 0;
+    this.haztePremium = false;
   }
 
   ngOnInit() {
 
-    if(localStorage.getItem("sesion") == null){
+    if (localStorage.getItem("sesion") == null) {
       this._router.navigate(['/']);
     }
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
@@ -37,37 +44,47 @@ export class VideoplayerComponent implements OnInit {
 
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
-    window['onYouTubeIframeAPIReady'] = () =>this.onYouTubeIframeAPIReady();
+    window['onYouTubeIframeAPIReady'] = () => this.onYouTubeIframeAPIReady();
 
-    setTimeout(()=>{    //<<<---    using ()=> syntax
+    setTimeout(() => {    //<<<---    using ()=> syntax
       this.obtenerTiempo();
- }, 3000);
-    
+    }, 3000);
+    this.youtubeId = this.aroute.snapshot.paramMap.get('id_youtube');
+
   }
-  onYouTubeIframeAPIReady(){
+  onYouTubeIframeAPIReady() {
     this.player = new window['YT'].Player('player', {
       height: '100%',
       width: '100%',
-      videoId: this.aroute.snapshot.paramMap.get('id_youtube'),
-      playerVars:{startSeconds: 605},
+      videoId: this.youtubeId,
+      //playerVars: { startSeconds: 605 },
       events: {
         'onReady': this.onPlayerReady,
         'onStateChange': this.onPlayerStateChange
       }
     });
   }
-  obtenerTiempo(){
-    this.publicidad = this.player.getCurrentTime() > 60 && this.usuario.role == 'free';
-    
-    if (!this.publicidad) {
-      setTimeout(()=>{    //<<<---    using ()=> syntax
-        this.obtenerTiempo();
-   }, 1000);
-      
-    }else{
-      this.stopVideo();
-    }
+  obtenerTiempo() {
+    if (this.usuario.role == 'free') {
+      const current = this.player.getCurrentTime();
+      this.haztePremium = current > 600
+      if (!this.publicidad) {
+        if (current - this.start > 60) {
+          this.reproducirPublicidad()
+          this.start = current;
+          this.publicidad = true;
+        }
+      } else {
+        if (this.player.getPlayerState() == 0) {
+          this.player.loadVideoById(this.youtubeId, this.start, 'Large')
+          this.publicidad = false;
+        }
+      }
 
+      setTimeout(() => {    //<<<---    using ()=> syntax
+        this.obtenerTiempo();
+      }, 200);
+    }
   }
   // 4. The API will call this function when the video player is ready.
   onPlayerReady(event) {
@@ -78,12 +95,17 @@ export class VideoplayerComponent implements OnInit {
   //    The function indicates that when playing a video (state=1),
   //    the player should play for six seconds and then stop.
   onPlayerStateChange(event) {
-    if (event.data == window['YT'].PlayerState.PLAYING && !this.done) {
-      setTimeout(this.stopVideo, 6000);
+    if (event.data == window['YT'].PlayerState.PLAYING) {
       this.done = true;
     }
   }
+
   stopVideo() {
+  }
+
+  reproducirPublicidad() {
+    var index = Math.floor(Math.random() * this.publicidades.length);
+    this.player.loadVideoById(this.publicidades[index], 0, 'small')
   }
 
 }
