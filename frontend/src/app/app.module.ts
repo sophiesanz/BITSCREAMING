@@ -23,6 +23,7 @@ import { NgImageSliderModule } from "ng-image-slider";
 import { BuscarPeliculasComponent } from './componentes/buscar-peliculas/buscar-peliculas.component';
 import { BuscarSeriesComponent } from './componentes/buscar-series/buscar-series.component';
 import { VideoplayerComponent } from './componentes/videoplayer/videoplayer.component';
+import { PeliculasCarouselComponent } from './componentes/peliculas-carousel/peliculas-carousel.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,11 @@ import { VideoplayerComponent } from './componentes/videoplayer/videoplayer.comp
     ContactenosComponent,
     BuscarPeliculasComponent,
     BuscarSeriesComponent,
+<<<<<<< Updated upstream
     VideoplayerComponent
+=======
+    PeliculasCarouselComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

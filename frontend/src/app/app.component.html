@@ -12,12 +12,15 @@
   <input type="search" [ngModel]="searchtext" (ngModelChange)="search($event)" *ngIf="_router.url=='/menu'" />
 
   <a [routerLink]="['/login']" class="ml-auto" *ngIf="!usuarioLogueado">Login</a>
-  <mat-menu #appMenu="matMenu">
-    <button class="menu-black" mat-menu-item *ngIf="usuarioLogueado && usuario.role=='ROLE_ADMI'"[routerLink]="['/agregar-video']">Agregar Video</button>
-    <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']">Mis Favoritos</button>
-    <button class="menu-black" mat-menu-item [routerLink]="['/update']">Actualizar Mis Datos</button>
-    <button class="menu-black" mat-menu-item [routerLink]="" (click)="cerrarSesion()">Cerrar Sesion</button>
-  </mat-menu>
+
+  <div class="menu-black">
+    <mat-menu #appMenu="matMenu">
+      <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']">Agregar Video</button>
+      <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']">Mis Favoritos</button>
+      <button class="menu-black" mat-menu-item [routerLink]="['/update']">Actualizar Mis Datos</button>
+      <button class="menu-black" mat-menu-item [routerLink]="" (click)="cerrarSesion()">Cerrar Sesion</button>
+    </mat-menu>
+  </div>
   <button mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="usuarioLogueado">Mi perfil</button>
 </nav>
 <div class="router-container">
