@@ -54,35 +54,7 @@ export class AppComponent {
   }
 
   search(token) {
-    if (token != '' && token.length > 2) {
-      this._cancionService.buscarCanciones(token).subscribe(
-        (response: any) => {
-          this.canciones = response.canciones;
-          this._compartidoService.encontradasCanciones(this.canciones);
-        }, error => {
-          if (error != null) {
-            console.log(error)
-          }
-        }
-      )
-    } else {
-      this._cancionService.obtenerCanciones().subscribe(
-        (response: any) => {
-          if (response.canciones) {
-            this.canciones = response.canciones;
-            this._compartidoService.encontradasCanciones(this.canciones);
-          } else {
-            this.alertaCanciones = `No se pudieron cargar 
-          las canciones, contacte al 
-          administrador de la aplicacion`;
-          }
-        }, error => {
-          if (error != null) {
-            console.log(error)
-          }
-        }
-      )
-    }
+    this._compartidoService.encontradasCanciones(token);
   }
 }
 

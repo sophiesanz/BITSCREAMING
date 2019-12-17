@@ -1,7 +1,11 @@
 <div  *ngIf="!flag">
-  <div class="glitch-img"></div>
+  
+  <div class="glitch-img">
 </div>
-
+</div>
+<div *ngIf="flag">
+  <div *ngIf="flag" class="fondo">
+    <div class="container-fluid all ">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -49,7 +53,7 @@
                       <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
                     </div>
         <div class=" flip-card-back div1 col-xs-12 ">
-          <form class="form2"  #loginForm="ngForm" (ngSubmit)="registrar()" ngNativeValidate>
+          <form class="form2"  #loginForm="ngForm" (ngSubmit)="registrar('free')"  ngNativeValidate>
             <h3 class="p1">Registrarse</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>
@@ -103,7 +107,7 @@
               <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
             </div>
         <div class="flip-card-back div1 col-xs-12 ">
-          <form class="form2" #loginForm="ngForm" (ngSubmit)="registrar()" ngNativeValidate>
+          <form class="form2" #loginForm="ngForm" (ngSubmit)="registrar('premium')" ngNativeValidate>
             <h3 class="p1">Registrarse</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>

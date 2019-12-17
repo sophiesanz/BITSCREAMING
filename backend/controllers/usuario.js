@@ -24,7 +24,7 @@ function crearUsuario(req,res){
     usuario.password = params.password;
     usuario.imagen = params.imagen;
     usuario.sexo =params.sexo;
-    usuario.role = "ROLE_ADMI";
+    usuario.role = params.role;
 
     usuario.save()
     .then((usuarioGuardado)=>{

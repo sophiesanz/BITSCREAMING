@@ -49,21 +49,22 @@ export class ContentIndexComponent implements OnInit {
     });
   
   }
-  registrar() {
-    this._usuarioService.registrar(this.usuario).subscribe(
-      (response: any) => {
-        if (response.usuario) {
-          this.registroCorrecto = 
-          "Registro correcto. Su email para iniciar sesión es: "+this.usuario.correo;
-        } else {
-          this.registroCorrecto = 
-          "Registro de usuario falló";
+    registrar(tipocliente) {
+      this.usuario.role=tipocliente
+      this._usuarioService.registrar(this.usuario).subscribe(
+        (response: any) => {
+          if (response.usuario) {
+            this.registroCorrecto = 
+            "Registro correcto. Su email para iniciar sesión es: "+this.usuario.correo;
+          } else {
+            this.registroCorrecto = 
+            "Registro de usuario falló";
+          }
+        }, error => {
+          if (error != null) {
+            console.log(error)
+          }
         }
-      }, error => {
-        if (error != null) {
-          console.log(error)
-        }
-      }
-    )
-  }
+      )
+    }
 } 

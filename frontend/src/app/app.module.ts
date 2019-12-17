@@ -22,6 +22,7 @@ import { ContactenosComponent } from './componentes/contactenos/contactenos.comp
 import { NgImageSliderModule } from "ng-image-slider";
 import { BuscarPeliculasComponent } from './componentes/buscar-peliculas/buscar-peliculas.component';
 import { BuscarSeriesComponent } from './componentes/buscar-series/buscar-series.component';
+import { VideoplayerComponent } from './componentes/videoplayer/videoplayer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BuscarSeriesComponent } from './componentes/buscar-series/buscar-series
     FavoritosComponent,
     ContactenosComponent,
     BuscarPeliculasComponent,
-    BuscarSeriesComponent
+    BuscarSeriesComponent,
+    VideoplayerComponent
   ],
   imports: [
     BrowserModule,

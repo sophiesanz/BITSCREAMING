@@ -13,6 +13,7 @@ export class BuscarSeriesComponent implements OnInit {
   canciones: Cancion[];
   existenCanciones;
   images;
+  imagesAll;
   alertaCanciones;
   avisoCanciones;
   usuario: Usuario;
@@ -23,8 +24,8 @@ export class BuscarSeriesComponent implements OnInit {
   ) { 
     this.existenCanciones = false;
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
-    this._servicioCompartido.cancionesEmitida.subscribe(canciones => {
-      this.canciones = canciones;
+    this._servicioCompartido.cancionesEmitida.subscribe(token => {
+      this.search (token);
     });
   }
 
@@ -33,23 +34,23 @@ export class BuscarSeriesComponent implements OnInit {
     this.images =[
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title1',
+        title: 'un dia una vaca',
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title2',
+        title: 'vestida de uniforme',
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title3',
+        title: 'me llamo el otro dia',
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'a decirme que la integral',
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'no se resuelve por partes',
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
@@ -72,6 +73,7 @@ export class BuscarSeriesComponent implements OnInit {
         title: 'Image title',
       },
     ]
+    this.imagesAll =  this.images;
   }
 
   cargarCanciones() {
@@ -127,21 +129,12 @@ export class BuscarSeriesComponent implements OnInit {
   }
 
   search(token) {
-    if (token != "" && token.length > 2) {
-      this._cancionService.buscarCanciones(token).subscribe(
-        (response: any) => {
-          this.canciones = response.canciones;
-          this.existenCanciones = true;
-        },
-        error => {
-          if (error != null) {
-            console.log(error);
-          }
-        }
-      );
-    } else {
-      this.cargarCanciones();
-    }
+    this.images = [];
+    this.imagesAll.forEach(image => {
+      if (image.title && image.title.match(new RegExp(token))) {
+        this.images.push(image);
+      }
+    });
   }
 
 }

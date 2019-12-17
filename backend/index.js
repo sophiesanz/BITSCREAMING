@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var app = require('./app');
 var port = 3977;
 mongoose.connect(
-    'mongodb://localhost:27017/bitmusic', // aqui se coloca el nombre de la base de datos
+    'mongodb://bit:G2PQoRHblGi0yeNK@ds121135.mlab.com:21135/bitnetflix', // aqui se coloca el nombre de la base de datos
     (error, answer) => {
         if (error){
             console.log('No se pudo conectar a db')

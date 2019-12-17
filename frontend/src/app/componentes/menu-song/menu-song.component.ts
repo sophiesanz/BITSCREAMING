@@ -13,18 +13,20 @@ export class MenuSongComponent implements OnInit {
   canciones: Cancion[];
   existenCanciones;
   images;
+  imagesAll;
   alertaCanciones;
   avisoCanciones;
   usuario: Usuario;
 
   constructor(
-    private _cancionService: CancionService,
-    private _servicioCompartido: CompartidoService
+      private _cancionService: CancionService,
+      private _servicioCompartido: CompartidoService
   ) {
     this.existenCanciones = false;
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
-    this._servicioCompartido.cancionesEmitida.subscribe(canciones => {
-      this.canciones = canciones;
+    console.log(this.usuario)
+    this._servicioCompartido.cancionesEmitida.subscribe(token => {
+      this.search(token);
     });
   }
 
@@ -34,44 +36,48 @@ export class MenuSongComponent implements OnInit {
       {
         video: "https://youtu.be/6pxRHBw-k8M",
         title: 'Image title1',
+        posterImage:"../../../assets/1.jpg"
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title2',
+        title: 'Image title2'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title3',
+        title: 'Image title3'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
       {
         video: "https://youtu.be/6pxRHBw-k8M",
-        title: 'Image title',
+        title: 'Image title'
       },
     ]
+    this.imagesAll = this.images;
+
+    
   }
 
   cargarCanciones() {
@@ -127,20 +133,11 @@ export class MenuSongComponent implements OnInit {
   }
 
   search(token) {
-    if (token != "" && token.length > 2) {
-      this._cancionService.buscarCanciones(token).subscribe(
-        (response: any) => {
-          this.canciones = response.canciones;
-          this.existenCanciones = true;
-        },
-        error => {
-          if (error != null) {
-            console.log(error);
-          }
-        }
-      );
-    } else {
-      this.cargarCanciones();
-    }
+    this.images = [];
+    this.imagesAll.forEach(image => {
+      if (image.title && image.title.match(new RegExp(token))) {
+        this.images.push(image);
+      }
+    });
   }
 }
