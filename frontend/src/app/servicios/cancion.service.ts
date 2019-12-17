@@ -67,6 +67,17 @@
     options
     ).pipe(map(res => res));
   }
+  buscarCancionesToken(token) {
+    let options = {
+    headers: new HttpHeaders(
+    {'Content-Type': 'application/json'
+    })
+    };
+    return this._http.get(
+    this.url+'buscar-las-canciones/'+token,
+    options
+    ).pipe(map(res => res));
+  }
 
   cargarFicheroCancion(file:File,id){
     var formData = new FormData();

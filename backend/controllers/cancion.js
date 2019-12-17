@@ -161,19 +161,23 @@ function buscarTipoGenero(req, res) {
 function buscarCanciones(req, res) {
     var token = req.params.token;
 
-    Cancion.find({
-        "titulo": {
-            $regex: new RegExp(token),
-            $options: 'i'
-        },
-        "genero": {
-            $regex: new RegExp(token),
-            $options: 'i'
-        },
-        "tipo": {
+    Cancion.find({$or:[
+        {"titulo": {
             $regex: new RegExp(token),
             $options: 'i'
         }
+      },
+        {"genero": {
+            $regex: new RegExp(token),
+            $options: 'i'
+        }
+      },
+        {"tipo": {
+            $regex: new RegExp(token),
+            $options: 'i'
+        }
+      }
+      ]
     }, (err, canciones) => {
         if (err) {
             res.status(500).send({
