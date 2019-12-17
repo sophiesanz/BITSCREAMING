@@ -5,6 +5,31 @@
     
 }
 
+.mat-menu-content {
+    
+    background-color: black !important
+  }
+
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button{
+    white-space: normal;
+    margin-right: 200px;
+  }
+
+  .mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+  font-family: 'Lato', sans-serif;;
+  
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: auto !important;
+    width: auto !important; 
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
 /* .container1 {
     display: flex;
     justify-content: space-around;
