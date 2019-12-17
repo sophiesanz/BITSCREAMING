@@ -30,8 +30,13 @@ export class PeliculasCarouselComponent implements OnInit {
     this._cancionService.buscarCanciones(tipo, genero).subscribe(
       (response: any) => {
         if (response.canciones) {
-          this.canciones = response.canciones;
-          console.log('response.canciones', response.canciones);
+          const videos = response.canciones;
+          this.canciones =videos.map((video) => {
+            return {
+              title: video.titulo,
+              video: 'http://youtube.com/watch?v=' + video.archivo,
+            };
+          });
           this.existenCanciones = true;
         }
       },
