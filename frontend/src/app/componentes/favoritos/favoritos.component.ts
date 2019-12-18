@@ -16,7 +16,6 @@ export class FavoritosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.getElementById('footer').style.position= "fixed";
   }
 
 }

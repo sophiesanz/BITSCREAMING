@@ -25,7 +25,6 @@ export class MainMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.getElementById('footer').style.position = "fixed";
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
   }
 

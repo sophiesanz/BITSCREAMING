@@ -2,32 +2,46 @@
   <a [routerLink]="''" class="navbar-brand ">
     <img src="../assets/logo-bitscream.png" alt="" class="navbar-brand-size">
   </a>
-  
-  
+
+
 
   <a [routerLink]="['/login']" class="ml-auto" *ngIf="!usuarioLogueado">Login</a>
-  
+
   <div>
     <div>
       <div class="btn-group" role="group" aria-label="Basic example" *ngIf="usuarioLogueado">
-        <input  class="transparente" type="search" [ngModel]="searchtext" (ngModelChange)="search($event)" *ngIf="_router.url=='/menu'" />
-        <button class="myBtn" (click)="asignarUbicacion('buscarPeliculas')"><h6>Peliculas</h6></button>
-        <button class="myBtn" (click)="asignarUbicacion('buscarSeries')"><h6>Series</h6></button>
-        <button class="myBtn"   mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="usuarioLogueado"><h6>Mi perfil</h6></button>
+        <button class="myBtn" (click)="asignarUbicacion('buscarPeliculas')">
+          <h6>Peliculas</h6>
+        </button>
+        <button class="myBtn" (click)="asignarUbicacion('buscarSeries')">
+          <h6>Series</h6>
+        </button>
+        <button class="myBtn" mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="usuarioLogueado">
+          <h6>Mi perfil</h6>
+        </button>
       </div>
     </div>
-    
+
     <mat-menu class="menu-black" #appMenu="matMenu">
-      <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']" *ngIf="usuarioLogueado && usuario.role=='ROLE_ADMI'">Agregar Video</button>
-      <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']" *ngIf="usuarioLogueado && usuario.role!='free'">Mis Favoritos</button>
+      <button class="menu-black" mat-menu-item [routerLink]="['/agregar-video']"
+        *ngIf="usuarioLogueado && usuario.role=='ROLE_ADMI'">Agregar Video</button>
+      <button class="menu-black" mat-menu-item [routerLink]="['/favoritos']"
+        *ngIf="usuarioLogueado && usuario.role!='free'">Mis Favoritos</button>
       <button class="menu-black" mat-menu-item [routerLink]="['/update']">Actualizar Mis Datos</button>
       <button class="menu-black" mat-menu-item [routerLink]="" (click)="cerrarSesion()">Cerrar Sesion</button>
     </mat-menu>
   </div>
-  
+
 </nav>
 <div class="router-container">
   <router-outlet></router-outlet>
+</div>
+<div class="busqueda" *ngIf="usuarioLogueado">
+  <div class="column">
+    <h2>Que serie o pelicula estas buscando?</h2>
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search" [ngModel]="searchtext" (ngModelChange)="search($event)"
+    *ngIf="_router.url=='/menu'" >
+  </div>
 </div>
 <div class="footer-wrapper">
   <app-footer></app-footer>
