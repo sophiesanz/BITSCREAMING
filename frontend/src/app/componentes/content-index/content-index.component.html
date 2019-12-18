@@ -50,11 +50,12 @@
        <div class="flip-card">
               <div class="flip-card-inner">
                   <div class="flip-card-front">
-                      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                      <img src="../../../assets/main/freemium.jpg" alt="Avatar" style="width:100%;">
+                      <div class="plan">El plan Jason te ofrece una experiencia escalofriante con una lista moderada de peliculas y series para toda la sed de adrenalina que tu prefieres </div>
                     </div>
         <div class=" flip-card-back div1 col-xs-12 ">
           <form class="form2"  #loginForm="ngForm" (ngSubmit)="registrar('free')"  ngNativeValidate>
-            <h3 class="p1">Registrarse</h3>
+            <h3 class="p1">Registrate y adquiere tu plan</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>
               <input type="text" class="form-control input1" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -88,7 +89,7 @@
             </div>
 ​             <br>
             <br>
-            <button  type="submit" class="btn btn-primary radius">Registrarse</button>
+            <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>
@@ -104,7 +105,7 @@
         <div class="flip-card">
             <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+              <img src="../../assets/main/premium.jpg" alt="Avatar" style="width:100%;">
             </div>
         <div class="flip-card-back div1 col-xs-12 ">
           <form class="form2" #loginForm="ngForm" (ngSubmit)="registrar('premium')" ngNativeValidate>
@@ -147,7 +148,7 @@
               </select>
             </div>
 ​
-                     <button  type="submit" class="btn btn-primary radius">Registrarse</button>
+                     <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>
