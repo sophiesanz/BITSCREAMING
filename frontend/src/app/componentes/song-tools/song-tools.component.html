@@ -14,15 +14,16 @@
         [(ngModel)]="cancion.duracion" [disabled]="cargarFichero" required>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput">Genero:</label>
-      <input type="text" class="form-control inputdat1" id="formGroupExampleInput" #genero="ngModel" name="genero"
-        [(ngModel)]="cancion.genero" [disabled]="cargarFichero" required>
+      <label for="formGroupExampleInput4">Genero:</label>
+      <select placeholder="seleccione" class="form-control input1" name="genero" #genero="ngModel" [(ngModel)]="cancion.genero" [disabled]="cargarFichero" required>
+      <option  [value]="item1.value" *ngFor="let item1 of lista1">{{item1.label}}</option> -->
+       </select>
     </div>
 
     <div>
       <label for="exampleInputInput3" class="label1">Tipo</label>
       <select placeholder="seleccione" class="form-control input1" name="tipo" #tipo="ngModel"
-        [(ngModel)]="cancion.tipo" required>
+        [(ngModel)]="cancion.tipo" [disabled]="cargarFichero" required>
         <option [value]="item.value" *ngFor="let item of lista">{{item.label}}</option>
       </select>
     </div>

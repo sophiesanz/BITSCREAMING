@@ -8,6 +8,7 @@ import { CancionService } from 'src/app/servicios/cancion.service';
 })
 export class SongToolsComponent implements OnInit {
   lista: Object[]= [{value:"",label:"Seleccione el tipo"},{value:"pelicula",label:"pelicula"}, {value:"serie",label:"serie"}]
+  lista1: Object[]= [{value:"",label:"Seleccione el tipo"},{value:"anime",label:"anime"}, {value:"comedia",label:"comedia"}, {value:"drama",label:"drama"},{value:"romance",label:"romance"}]
   tituloComponente:string;
   cancion:Cancion;
   cancionCorrecta;
