@@ -76,7 +76,7 @@ export class SongToolsComponent implements OnInit {
   reset(){
     this.cancion = new Cancion('','','','','','');
     this.cargarFichero = false;
-    this.tituloComponente = "Crear cancion";
+    this.tituloComponente = "Crear pelicula/serie";
     this.cancionCorrecta = undefined;
     this.actualizacionCorrecta = false;
   }
