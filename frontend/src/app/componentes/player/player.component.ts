@@ -31,19 +31,12 @@ export class PlayerComponent implements OnInit {
     this._servicioCompartido.cancionEmitida.subscribe(
       cancion => {
         this.canciones.push(cancion);
-        console.log(this.canciones)
         let totalCanciones = this.canciones.length;
-        if (totalCanciones == 1) {
-          this.iniciarReproductor();
-        }
       }
     )
   }
 
   ngOnInit() {
-    if(this.playlistInLocalStorage){
-      this.iniciarReproductor();
-    }
   }
 
   obtenerIndiceCancion() {
@@ -60,37 +53,6 @@ export class PlayerComponent implements OnInit {
 
   resetIndiceCancion() {
     this.indiceCancion = 1;
-  }
-
-  iniciarReproductor() {
-    var video = document.getElementById("video");
-    video.setAttribute("src", this.url + this.canciones[0].archivo);
-    /* video.setAttribute("height", 280); */
-    this.cambiarNombreCancionActual(this.canciones[0].titulo)
-    console.log(this.canciones)
-    this.aumentarIndiceCancion();
-
-    // el evento ended ocurre cuando el video termina
-    video.addEventListener('ended', () => {
-      //se obtiene el indice de la siguiente cancion a reproducir
-      let indice = this.obtenerIndiceCancion();
-
-      /* se valida si el indice de la siguiente cancion a reproducir
-      desborda el arreglo de canciones */
-      if (indice < this.canciones.length) {
-        video.setAttribute("src", this.url + this.canciones[indice].archivo);
-        this.cambiarNombreCancionActual(this.canciones[indice].titulo)
-
-        //modificar el tipo del objeto/variable
-        let repro = video as any;
-        repro.play();
-        this.aumentarIndiceCancion();
-      } else {
-        video.setAttribute("src", this.url + this.canciones[0].archivo)
-        this.cambiarNombreCancionActual(this.canciones[0].titulo)
-        this.resetIndiceCancion();
-      }
-    })
   }
 
   eliminarCancion(i){

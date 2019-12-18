@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     {path:'favoritos',component:FavoritosComponent},
     {path:'contactenos',component:ContactenosComponent},
     {path:'peliculas',component:PeliculasCarouselComponent},
-    {path:'videoplay/:id_youtube',component:VideoplayerComponent},
+    {path:'videoplay/:id_youtube/:title',component:VideoplayerComponent},
     {path:'series',component:BuscarSeriesComponent}
 ];
 export const appRoutingProviders: any[] = [];

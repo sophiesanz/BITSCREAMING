@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { CompartidoService } from 'src/app/servicios/compartido.service';
 import { Usuario } from 'src/app/modelos/usuario';
 
 @Component({
@@ -15,15 +16,19 @@ export class VideoplayerComponent implements OnInit {
   publicidad: Boolean;
   usuario: Usuario;
   youtubeId: string;
+  title: string;
   start: number;
+  avisoCanciones:string;
   constructor(
     private _router: Router,// inicializamos el servicio de router{
-    private aroute: ActivatedRoute// inicializamos el servicio de router{
+    private aroute: ActivatedRoute,// inicializamos el servicio de router{
+    private _servicioCompartido:CompartidoService
   ) {
     this.publicidades = ['MrxGdtYzUkk', 'fFFf91-K30U', 'iPjaMOZZD58', 'A2AcUQHrJIE', 'roIok_ya084', 'gGO4t7oCHNA']
     this.done = false
     this.start = 0;
     this.haztePremium = false;
+    this.avisoCanciones = '';
   }
 
   ngOnInit() {
@@ -56,6 +61,7 @@ export class VideoplayerComponent implements OnInit {
       this.obtenerTiempo();
     }, 3000);
     this.youtubeId = this.aroute.snapshot.paramMap.get('id_youtube');
+    this.title = this.aroute.snapshot.paramMap.get('title');
 
   }
   onYouTubeIframeAPIReady() {
@@ -104,6 +110,16 @@ export class VideoplayerComponent implements OnInit {
   }
 
   stopVideo() {
+  }
+
+  agregarListaReproduccion(){
+    var playlist = [];
+    if(localStorage.getItem("playlist") != null){
+      playlist = JSON.parse(localStorage.getItem("playlist"))
+    }
+    playlist.push({idYoutube:this.youtubeId,title:this.title})
+    localStorage.setItem("playlist",JSON.stringify(playlist));
+    this.avisoCanciones= "Pelicula agregada a la lista de favoritos";
   }
 
   reproducirPublicidad() {

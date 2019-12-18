@@ -72,7 +72,7 @@ export class PeliculasCarouselComponent implements OnInit {
     var identifier = this.canciones[index].youtubeId;
     identifier = identifier.replace(/.+v=/,"");
     
-    this._router.navigate(['/videoplay/'+identifier]);
+    this._router.navigate(['/videoplay/'+identifier+'/'+this.canciones[index].title]);
   }
 
 }
