@@ -36,7 +36,7 @@
 <div class="router-container">
   <router-outlet></router-outlet>
 </div>
-<div class="busqueda">
+<div class="busqueda" *ngIf="usuarioLogueado">
   <div class="column">
     <h2>Que serie o pelicula estas buscando?</h2>
     <input class="form-control" type="text" placeholder="Search" aria-label="Search" [ngModel]="searchtext" (ngModelChange)="search($event)"
