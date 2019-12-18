@@ -16,6 +16,18 @@
   font-family: 'Permanent Marker', cursive;
   font-size:20PX;
 }
+
+.plan{
+  background-color:#0E0C1A; 
+ 
+  color:#ffffff;
+  display: block;
+  padding:50px;
+  z-index:2 ;
+  position:relative;
+  width:80%;
+  margin:-150px auto;
+}
   
 .flip-card {
     background-color: transparent;
