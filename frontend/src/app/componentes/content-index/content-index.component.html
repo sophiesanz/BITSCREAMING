@@ -54,7 +54,7 @@
                     </div>
         <div class=" flip-card-back div1 col-xs-12 ">
           <form class="form2"  #loginForm="ngForm" (ngSubmit)="registrar('free')"  ngNativeValidate>
-            <h3 class="p1">Registrarse</h3>
+            <h3 class="p1">Registrate y adquiere tu plan</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>
               <input type="text" class="form-control input1" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -88,7 +88,7 @@
             </div>
 ​             <br>
             <br>
-            <button  type="submit" class="btn btn-primary radius">Registrarse</button>
+            <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>
@@ -147,7 +147,7 @@
               </select>
             </div>
 ​
-                     <button  type="submit" class="btn btn-primary radius">Registrarse</button>
+                     <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>
