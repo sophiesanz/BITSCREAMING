@@ -17,7 +17,6 @@ export class AgregarVideoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.getElementById('footer').style.position= "fixed";
   }
 
 }
