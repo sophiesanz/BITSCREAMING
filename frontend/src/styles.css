@@ -3,6 +3,7 @@
   margin: 0%;
 }
 
+
 .mat-menu-content {
   background-color: black !important
 }
@@ -61,7 +62,7 @@ body {
   min-height: calc(100vh - 119px);
   font-family: 'Quattrocento Sans', sans-serif;
   background:url(assets/main/pared_01.jpg);
-  background-size: contain;
+  background-size: cover;
   background-repeat: repeat-y;
   width:100%;
 }

@@ -1,13 +1,38 @@
 .p1{
-    text-align: justify;
-    color: black;
-    padding-bottom: 2%;
+  text-align:center;
+  color: #5D0009;
+  padding-bottom: 2%;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-weight:bold;
+}
+.btn-registro{
+  background:url(../../../assets/main/roto_03.png)no-repeat;
+  width: 80%;
+  height: 120px;
+  display: block;
+  background-size: cover;
+  margin: 0 auto;
+  color:#ffffff;
+  font-family: 'Permanent Marker', cursive;
+  font-size:20PX;
 }
 
+.plan{
+  background-color:#0E0C1A; 
+ 
+  color:#ffffff;
+  display: block;
+  padding:50px;
+  z-index:2 ;
+  position:relative;
+  width:80%;
+  margin:-150px auto;
+}
+  
 .flip-card {
     background-color: transparent;
-    width: 30%;
-    height: 80vh;
+    width: 33%;
+    height: 100vh;
     perspective: 1000px;
   }
   
@@ -18,7 +43,7 @@
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    
   }
 
   /* glitch elem must have absolute position */
@@ -49,15 +74,14 @@
   }
   
   .flip-card-front {
-    background-color: #bbb;
-    color: black;
+   
   }
   
   .flip-card-back {
     background-color: #2980b9;
     color: white;
     transform: rotateY(180deg);
-    padding-left:8%;
+    padding:30px;
   }
 
   .all{
@@ -67,7 +91,6 @@
 
 .p2{
     text-align: justify;
-    
     padding-bottom: 2%;
     padding-right: 15%;
     padding-top: 2%;
@@ -76,6 +99,7 @@
 
 .form2{
 line-height: 9px;
+font-family: 'Quattrocento Sans', sans-serif;
 
 }
 .divmain{
@@ -92,10 +116,11 @@ line-height: 9px;
     align-items: center;
     justify-content: center;
     text-align: left;
-    background-color:rgba(255, 255, 255, 0.794);
-    padding: 0px;
+    background:url('../../../assets/main/back.jpg');
+    padding: 20px;
     margin-left: 0px;
-    width: 100%;  
+    width: 100%;   
+    color:#A6030A;
 }
 
 
@@ -106,13 +131,15 @@ line-height: 9px;
 
 .input1{
     width: 90%;
-    border-style: outset ;
-    border-color:gray
+    border-style: none ;
+    background:#956A41;
+    color:#5D0009;
    
 }
 
 .label1{
     padding-top: 0.5%;
+    color:#5D0009;
 }
 
 .container{
