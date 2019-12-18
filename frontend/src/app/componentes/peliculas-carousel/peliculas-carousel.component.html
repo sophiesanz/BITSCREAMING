@@ -1,5 +1,5 @@
-<div *ngIf="canciones.length > 0">
+<div *ngIf="canciones&&canciones.length > 0">
   <h3>{{genero}}</h3>
-  <ng-image-slider [images]="canciones" #nav>
+  <ng-image-slider [images]="canciones" [imagePopup] = "false" (imageClick) ="imageClick($event)" #nav>
   </ng-image-slider>
 </div>

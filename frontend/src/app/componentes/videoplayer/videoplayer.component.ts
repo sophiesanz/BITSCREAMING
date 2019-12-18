@@ -32,19 +32,25 @@ export class VideoplayerComponent implements OnInit {
       this._router.navigate(['/']);
     }
     this.usuario = JSON.parse(localStorage.getItem("sesion"));
+    console.log("iniciado");
+
 
     this.done = false;
     this.publicidad = false;
     // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
+    if (!document.getElementById("ytscript")) {
+      var tag = document.createElement('script');
+      tag.setAttribute("Id", "ytscript");
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    window['onYouTubeIframeAPIReady'] = () => this.onYouTubeIframeAPIReady();
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      window['onYouTubeIframeAPIReady'] = () => this.onYouTubeIframeAPIReady();
+    }
+    else { location.reload() }
 
     setTimeout(() => {    //<<<---    using ()=> syntax
       this.obtenerTiempo();
@@ -69,7 +75,7 @@ export class VideoplayerComponent implements OnInit {
       const current = this.player.getCurrentTime();
       this.haztePremium = current > 600
       if (!this.publicidad) {
-        if (current - this.start > 60) {
+        if (!this.haztePremium && current - this.start > 60) {
           this.reproducirPublicidad()
           this.start = current;
           this.publicidad = true;
@@ -95,9 +101,6 @@ export class VideoplayerComponent implements OnInit {
   //    The function indicates that when playing a video (state=1),
   //    the player should play for six seconds and then stop.
   onPlayerStateChange(event) {
-    if (event.data == window['YT'].PlayerState.PLAYING) {
-      this.done = true;
-    }
   }
 
   stopVideo() {

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Cancion } from "src/app/modelos/cancion";
 import { CompartidoService } from "src/app/servicios/compartido.service";
 import { CancionService } from "src/app/servicios/cancion.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-peliculas-carousel',
@@ -20,7 +21,8 @@ export class PeliculasCarouselComponent implements OnInit {
 
   constructor(
       private _servicioCompartido: CompartidoService,
-      private _cancionService: CancionService
+      private _cancionService: CancionService,
+      private _router : Router
   ) {
     this.existenCanciones = false;
     this._servicioCompartido.cancionesEmitida.subscribe(token => {
@@ -41,6 +43,7 @@ export class PeliculasCarouselComponent implements OnInit {
             return {
               title: video.titulo,
               video: 'http://youtube.com/watch?v=' + video.archivo,
+              youtubeId: video.archivo
             };
           });
           this.existenCanciones = true;
@@ -63,6 +66,13 @@ export class PeliculasCarouselComponent implements OnInit {
         this.canciones.push(cancion);
       }
     });
+  }
+
+  imageClick(index){
+    var identifier = this.canciones[index].youtubeId;
+    identifier = identifier.replace(/.+v=/,"");
+    
+    this._router.navigate(['/videoplay/'+identifier]);
   }
 
 }
