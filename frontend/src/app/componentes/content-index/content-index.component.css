@@ -19,10 +19,10 @@
 
 .plan{
   background-color:#0E0C1A; 
- 
+  opacity:.8;
   color:#ffffff;
   display: block;
-  padding:50px;
+  padding:20px;
   z-index:2 ;
   position:relative;
   width:80%;
