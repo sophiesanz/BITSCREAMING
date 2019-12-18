@@ -42,7 +42,7 @@ export class SongToolsComponent implements OnInit {
           this.cancionCorrecta = "La pelicula/serie se ha creado correctamente";
           setTimeout(()=>{
             this.reset();
-          },3000)
+          },1000)
         }else{
           this.cancionCorrecta = "No se ha podido crear la cancion";
         }
