@@ -6,6 +6,7 @@
     text-align: center;   
     color: black;
     position: relative;
+    font-family: 'Quattrocento Sans', sans-serif;
 }
 
 .padre{
@@ -16,7 +17,7 @@
 }
 
 a, button{
-    color: black;
+    color: rgb(247, 244, 244);
 }
 .credito{
     text-align: right;
