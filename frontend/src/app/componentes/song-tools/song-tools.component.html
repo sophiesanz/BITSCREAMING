@@ -31,12 +31,26 @@
     </div>
     <!-- <div class="botoncrear"><button type="submit" class="btn btn-primary radius ">Crear Cancion</button></div>
      -->
+     <div>
+      <label for="exampleInputInput3" class="label1">Video ID:</label>
+      <input type="text" class="form-control input" id="formGroupExampleInput" #archivo="ngModel" name="archivo"
+      [(ngModel)]="cancion.archivo" required>
+    </div>
+     
     <div *ngIf="cargarFichero">
-      <p>
+      
+    
+      <!-- <p>
         <label> Sube el video</label>
         <br>
         <input type="file" placeholder="Pelicula o Serie" (change)="fileChangeEvent($event)">
-      </p>
+      </p> -->
+
+      <!-- <p>
+        <label> Sube la imagen para tu video</label>
+        <br>
+        <input type="file" placeholder="Pelicula o Serie" (change)="fileChangeEvent($event)">
+      </p> -->
     </div>
     <div class="dflex boton2">
       <button type="submit" class="btn btn-danger center">{{ tituloComponente }}</button>

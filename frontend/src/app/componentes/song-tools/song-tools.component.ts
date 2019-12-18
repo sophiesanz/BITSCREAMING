@@ -40,8 +40,11 @@ export class SongToolsComponent implements OnInit {
           this.cargarFichero = true;
           this.tituloComponente = "Actualizar";
           this.cancionCorrecta = "La pelicula/serie se ha creado correctamente";
+          setTimeout(()=>{
+            this.reset();
+          },3000)
         }else{
-          this.cancionCorrecta = "No se ha podido crear la cancion, revisa el codigo T_T";
+          this.cancionCorrecta = "No se ha podido crear la cancion";
         }
       },error=>{
         if (error != null) {
