@@ -91,6 +91,10 @@
   .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
   }
+
+  .flip-card:hover .flip-card-inner .plan {
+    display: none;
+  }
   
   .flip-card-front, .flip-card-back {
     position: absolute;
@@ -99,9 +103,7 @@
     backface-visibility: hidden;
   }
   
-  .flip-card-front {
-   
-  }
+ 
   
   .flip-card-back {
     background-color: #2980b9;
@@ -133,7 +135,7 @@ font-family: 'Quattrocento Sans', sans-serif;
     width:100%;
     justify-content: space-around;
     padding-top:8%;
-    padding-bottom:8%;
+    padding-bottom:0;
 }
 
 
@@ -179,6 +181,12 @@ font-family: 'Quattrocento Sans', sans-serif;
 .hform-style{
   padding: 4rem 5rem;
   box-sizing: border-box;
+}
+
+.banner{
+  position: fixed;
+  top:300px;
+  width:200px;
 }
 
 @media only screen and (min-width: 768px) {
