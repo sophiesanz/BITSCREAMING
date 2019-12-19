@@ -17,6 +17,25 @@
   font-size:20PX;
 }
 
+.carousel-caption {
+  position: absolute;
+  right: 5%;
+  background-position: top;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: right;
+  top: 5%;
+}
+
+.carousel-caption h5 img{
+  width:70%;
+}
+
+.carousel-caption p{
+  color:#ffffff;
+}
 .event-horror{
   background:url(../../../assets/main/banner-fest.jpg)no-repeat;
   width: 100%;
