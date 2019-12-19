@@ -96,3 +96,8 @@ h1{
     background: #ddd;
     color: black;
   }
+
+  .section-paddings{
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }

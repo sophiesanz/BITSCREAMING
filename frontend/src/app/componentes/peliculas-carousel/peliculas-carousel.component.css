@@ -1,17 +1,19 @@
 /*Carousel*/
 
-h3{
+h4{
       color:white;
       margin-left: 70px;
       font-size: 18px;
       font-weight: lighter;
       text-transform: capitalize;
-
+      padding-bottom: 1%;
+      padding-top: 1%;
 }
 
 .carousel {
       width: 100%;
 }
+
 
 .row__inner {
       transition: 450ms -webkit-transform;
