@@ -85,3 +85,8 @@ body {
   top: -70px;
 } */
 
+
+
+.ng-image-slider .ng-image-slider-container .main .main-inner .img-div .caption {
+  text-transform: capitalize;
+}
