@@ -17,6 +17,13 @@
   font-size:20PX;
 }
 
+.event-horror{
+  background:url(../../../assets/main/banner-fest.jpg)no-repeat;
+  width: 100%;
+  background-size:cover;
+  background-position: 0px -150px
+
+}
 .plan{
   background-color:#0E0C1A; 
   opacity:.8;
