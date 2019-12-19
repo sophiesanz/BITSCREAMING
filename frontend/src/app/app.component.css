@@ -85,3 +85,14 @@ nav.navbar.navbar-light.navbar-gray {
   top: 0;
   z-index: 99;
 }
+
+@media (max-width: 600px) {
+  nav.navbar.navbar-light.navbar-gray {
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+  }
+}
