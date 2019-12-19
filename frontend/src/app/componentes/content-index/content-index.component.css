@@ -23,10 +23,10 @@
   background-position: top;
   z-index: 10;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 70px;
   color: #fff;
   text-align: right;
-  top: 5%;
+  
 }
 
 .carousel-caption h5 img{
@@ -58,7 +58,7 @@
 .flip-card {
     background-color: transparent;
     width: 33%;
-    height: 100vh;
+    height: 70vh;
     perspective: 1000px;
   }
   

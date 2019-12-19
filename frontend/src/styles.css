@@ -3,6 +3,15 @@
   margin: 0%;
 }
 
+h1,h2{
+  font-family: 'Frijole', cursive;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
 
 .mat-menu-content {
   background-color: black !important
@@ -67,10 +76,7 @@ body {
   width:100%;
 }
 
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-}
+
 
 /* .ng-star-inserted {
   box-sizing: border-box;
