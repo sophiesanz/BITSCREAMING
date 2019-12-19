@@ -1,5 +1,22 @@
-<br><br>
+<h2>Reproductor de peliculas</h2>
+
+<h5 *ngIf="cancionActual">{{cancionActual}}</h5>
+
+<div>
+    <br>
+    <br>
+    <video width="640px" style="height: 280px;"  id="video" preload="auto" tabindex="0" controls="">
+   
+        <source src="" type='video/ogg; codecs="theora, vorbis"'>
+    
+    </video>
+</div>
+
+<br>
+<br>
 <h4>Mis favoritos</h4>
+<br>
+<br>
 <br>
 <ul style="color: black;" class="list-group list-group-flush mb-2" id="playlist"
     *ngFor="let cancion of canciones; let i = index">
