@@ -53,7 +53,7 @@
                     </div>
         <div class=" flip-card-back div1 col-xs-12 ">
           <form class="form2"  #loginForm="ngForm" (ngSubmit)="registrar('free')"  ngNativeValidate>
-            <h3 class="p1">Registrate y adquiere tu plan</h3>
+            <h3 style="font-family: 'Frijole';" class="p1">Adquiere tu plan</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>
               <input type="text" class="form-control input1" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -87,7 +87,7 @@
             </div>
 ​             <br>
             <br>
-            <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
+            <button  type="submit" style="font-family: 'Frijole';" class="btn btn-registro radius">Registrate</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>
@@ -109,7 +109,7 @@
             </div>
         <div class="flip-card-back div1 col-xs-12 ">
           <form class="form2" #loginForm="ngForm" (ngSubmit)="registrar('premium')" ngNativeValidate>
-            <h3 class="p1">Registrate y adquiere tu plan .</h3>
+            <h3 style="font-family: 'Frijole';" class="p1">Adquiere tu plan</h3>
             <div class="form-group">
               <label for="exampleInputEmail1" class="label1">Nombre</label>
               <input type="text" class="form-control input1" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -148,7 +148,7 @@
               </select>
             </div>
 ​
-                     <button  type="submit" class="btn btn-registro radius">Quiero mi plan ya</button>
+                     <button  type="submit" style="font-family: 'Frijole';" class="btn btn-registro radius">Registrate</button>
             <div *ngIf="registroCorrecto" class="alert alert-danger">
               {{registroCorrecto}}
             </div>

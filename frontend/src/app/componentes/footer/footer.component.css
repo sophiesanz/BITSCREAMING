@@ -18,9 +18,11 @@
 
 a, button{
     color: rgb(247, 244, 244);
+    font-family: 'Frijole';
 }
 .credito{
     text-align: right;
+    font-family: 'Frijole';
 }
 
 .siguenos{

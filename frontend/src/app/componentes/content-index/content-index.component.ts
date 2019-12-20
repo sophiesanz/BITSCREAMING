@@ -55,7 +55,7 @@ export class ContentIndexComponent implements OnInit {
         (response: any) => {
           if (response.usuario) {
             this.registroCorrecto = 
-            "Registro correcto. Su email para iniciar sesión es: "+this.usuario.correo;
+            "Su registro ha sido exitoso";
           } else {
             this.registroCorrecto = 
             "Registro de usuario falló";

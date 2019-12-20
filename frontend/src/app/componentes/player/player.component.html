@@ -1,4 +1,4 @@
-<h2>Reproductor de peliculas</h2>
+<h2 style="color:white;">Reproductor de peliculas</h2>
 
 <h5 *ngIf="cancionActual">{{cancionActual}}</h5>
 
@@ -14,10 +14,8 @@
 
 <br>
 <br>
-<h4>Mis favoritos</h4>
-<br>
-<br>
-<br>
+<h2 style="color:white;">Mis favoritos</h2>
+
 <ul style="color: black;" class="list-group list-group-flush mb-2" id="playlist"
     *ngFor="let cancion of canciones; let i = index">
     <li class="list-group-item itemCancion d-flex">
