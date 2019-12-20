@@ -30,15 +30,15 @@ export class UserProfileComponent implements OnInit {
 
         switch (randomafy) {
           case 0:
-            this.usuario.imagen = "HksiUI0w9xGDa5dqYezg8wVC.jpg"
+            this.usuario.imagen = "MiNhswv0k26uw2ciVwZrQscv.jpg"
             break;
 
           case 1:
-            this.usuario.imagen = "yMzRB-LKXq9ghz1vkOm6zaXE.jpg"
+            this.usuario.imagen = "4I-u-5XMrNX4zoHqfV_Iacgc.jpg"
             break;
 
           case 2:
-            this.usuario.imagen = "nJ2YCv8i00ExLZW0KgajHe6h.jpg"
+            this.usuario.imagen = "SwBp3U6SyMNcjFhTXjDMaA4A.jpg"
 
             break;
 
@@ -49,15 +49,15 @@ export class UserProfileComponent implements OnInit {
 
         switch (randomafy) {
           case 0:
-            this.usuario.imagen = "7PyZhAaAeh5mX9rnYHTNNqhK.jpg"
+            this.usuario.imagen = "5F-qAo3sfkgaPqczdhpOrZCl.jpg"
             break;
 
           case 1:
-            this.usuario.imagen = "0hbCfZMli_pf7VqEuzmsMLf2.jpg"
+            this.usuario.imagen = "8SSiJfAwP_Fr9KmX0HpN1wek.jpg"
             break;
 
           case 2:
-            this.usuario.imagen = "ZbgqfKbV7yZwUx3YYO9jatCs.png"
+            this.usuario.imagen = "6GgMKgyF9XhkRI0N7CwMxlf1.jpg"
 
             break;
 
@@ -77,7 +77,7 @@ export class UserProfileComponent implements OnInit {
   actualizarDatos() {
     this._usuarioService.actualizarUsuario(this.usuario._id, this.usuario).subscribe(
       (response: any) => {
-        /* debugger */
+        /*debugger */
         if (response.usuario) {
           if (this.filesToUpload != undefined) {
             this._usuarioService.cargarImagenUsuario(this.filesToUpload, this.usuario._id)
@@ -99,7 +99,9 @@ export class UserProfileComponent implements OnInit {
               )
 
 
-          };
+          }else{
+            this.actualizacionCorrecta = "Datos actualizados correctamente";
+          }
           localStorage.setItem("sesion", JSON.stringify(this.usuario));
         } else {
           this.actualizacionCorrecta = "No se ha podido actualizar sus datos, comuniquese con el administrador de la aplicacion"

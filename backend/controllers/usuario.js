@@ -122,7 +122,7 @@ function cargarImagenUsuario(req,res){
     //se valida si viene el archivo con la variable superglobal files
     if(req.files){
         var file_path = req.files.image.path;
-        var file_split = file_path.split('\/');
+        var file_split = file_path.split(/\\|\//);
         //se obtiene nombre del archivo
         var file_name = file_split[2];
 
