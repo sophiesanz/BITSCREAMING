@@ -59,10 +59,10 @@ export class PeliculasCarouselComponent implements OnInit {
   }
   
   search(token) {
-    const regex = new RegExp(token);
+    const regex = new RegExp(token.toLowerCase());
     this.canciones = [];
     this.cancionesAll.forEach(cancion => {
-      if ((cancion.title && cancion.title.match(regex)!=null) || this.genero.match(regex) != null) {
+      if ((cancion.title && cancion.title.toLowerCase().match(regex)!=null) || this.genero.toLowerCase().match(regex) != null) {
         this.canciones.push(cancion);
       }
     });
